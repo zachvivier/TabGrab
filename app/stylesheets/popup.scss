@@ -1,148 +1,93 @@
-// Icon-matched theme: deep navy backdrop, white browser-window cards with
-// bold ink outlines, teal "active tab" highlight, traffic-light dots.
+// Solid neutral slate: no page transparency or artificial colored backdrop.
+$slate: #25282e;
+$surface: #2e3239;
+$border: #555c67;
+$text: #f5f7fa;
+$muted: #b6bfce;
+$mint: #48e5c2;
 
-$navy: #101c38;      // icon background
-$ink: #16203c;       // icon outline / text on white
-$paper: #fbfcfe;     // icon window face
-$teal: #63e2c0;      // icon active tab
-$muted-ink: #8089a2; // secondary text on white
-$tab-gray: #d9dce2;  // icon inactive tabs (hover)
-$dot-red: #f45952;
-$dot-yellow: #fdd23a;
-$dot-green: #43c644;
+* { box-sizing: border-box; }
 
-$mono: "SFMono-Regular", "Cascadia Code", "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-
-html,
-body {
-  font: 400 13px/1.5 $mono;
-  color: $paper;
-  background: $navy;
+html, body {
   margin: 0;
-  padding: 0;
-  width: 280px;
+  width: 360px;
+  background: $slate;
+  color: $text;
+  color-scheme: dark;
+  font: 400 13px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  padding: 4px 12px 12px;
-  box-sizing: border-box;
+body { padding: 20px; }
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $border;
 }
 
-:focus-visible {
-  outline: 2px solid $teal;
-  outline-offset: -2px;
-}
-
-h1 {
-  font-size: 14px;
-  font-weight: 700;
-  color: $paper;
-  margin: 0;
-  padding: 10px 4px 12px;
-}
-
-#app-status {
-  display: none; // Hide this empty/useless status for now
-}
-
-// Each section is a "browser window" card, like the icon
-#settings-url-types,
-#settings-help {
-  background: $paper;
-  border: 2px solid $ink;
-  border-radius: 12px;
-  overflow: hidden;
-
-  h2 {
-    display: flex;
-    align-items: center;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: lowercase;
-    color: $ink;
-    margin: 0;
-    padding: 10px 12px;
-    border-bottom: 2px solid $ink;
-  }
-
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 6px;
-  }
-
-  li {
-    margin: 0;
-    padding: 0;
-  }
-
-  li a {
-    display: block;
-    padding: 7px 10px;
-    border-radius: 8px;
-    color: $ink;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background 120ms;
-  }
-
-  li a:hover,
-  li a:focus {
-    background: $tab-gray;
-    outline: 0;
-  }
-}
+.app-icon { display: block; flex: none; }
+h1 { margin: 0; font-size: 24px; line-height: 1.15; font-weight: 650; letter-spacing: -.6px; }
+.app-subtitle { margin: 3px 0 0; color: $muted; font-size: 14px; }
+h2 { margin: 19px 0 14px; font-size: 16px; line-height: 1.4; font-weight: 600; letter-spacing: -.2px; }
 
 #settings-url-types {
-  margin-bottom: 12px;
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 
-  // Traffic-light dots in the window header
-  h2::before {
-    content: "";
-    flex: none;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: $dot-red;
-    box-shadow: 13px 0 0 $dot-yellow, 26px 0 0 $dot-green;
-    margin-right: 36px;
-  }
+  a {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-height: 68px;
+    padding: 12px 14px;
+    border: 1px solid $border;
+    border-radius: 9px;
+    background: $surface;
+    color: $text;
+    text-decoration: none;
+    transition: background-color 120ms ease, border-color 120ms ease;
 
-  li a::before {
-    content: "[ ] ";
-    color: $muted-ink;
-    white-space: pre;
-  }
-
-  // Selected option = the teal active tab
-  li a.enabled {
-    background: $teal;
-    font-weight: 700;
-
-    &::before {
-      content: "[x] ";
-      color: $ink;
-    }
-
-    &:hover,
-    &:focus {
-      background: $teal;
-    }
+    &:hover { background: #383d45; border-color: #818b99; }
+    &.enabled { border-color: $mint; box-shadow: inset 0 0 0 .5px $mint; }
+    &.enabled .mode-indicator { border-color: $mint; }
+    &.enabled .mode-indicator::after { background: $mint; }
   }
 }
+
+.mode-indicator {
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  flex: none;
+  border: 1.5px solid $muted;
+  border-radius: 50%;
+
+  &::after { content: ""; width: 11px; height: 11px; border-radius: 50%; }
+}
+
+.mode-copy { display: block; min-width: 0; }
+.mode-title { display: block; font-size: 14px; line-height: 1.4; font-weight: 600; }
+.mode-description { display: block; margin-top: 2px; color: $muted; font-size: 12px; line-height: 1.4; }
 
 #settings-help {
-  li a::after {
-    content: " ↗";
-    color: $muted-ink;
-  }
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid $border;
+
+  a { color: $mint; text-decoration: underline; text-underline-offset: 3px; }
+  a:hover { color: #a0f5e1; }
 }
 
+a:focus-visible { outline: 2px solid $text; outline-offset: 3px; }
+
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition: none !important;
-  }
+  *, *::before, *::after { transition: none !important; }
+}
+
+@media (forced-colors: active) {
+  #settings-url-types a.enabled { outline: 2px solid Highlight; outline-offset: -3px; }
+  #settings-url-types a.enabled .mode-indicator::after { background: Highlight; forced-color-adjust: none; }
 }

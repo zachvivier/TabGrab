@@ -1,6 +1,6 @@
 {
   "name": "zendesk-tabgrab",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Zendesk TabGrab Extension",
   "engines": {
     "node": ">=20.9.0"
