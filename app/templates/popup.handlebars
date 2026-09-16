@@ -1,25 +1,44 @@
-<h1 class="{{enabledSetting currentUrlDetection "allUrls"}}{{enabledSetting currentUrlDetection "ticketUrls"}}">Zendesk TabGrab</h1>
-<p id="app-status">
-</p>
-<section id="settings-url-types">
-  <h2>{{t "txt_popup_title_link_detection"}}</h2>
-  <ul>
-    <li>
-      <a href="#" data-url-type="allUrls" class="{{enabledSetting currentUrlDetection "allUrls"}}">{{t "txt_popup_options_link_detection_allLinks"}}</a>
-    </li>
-    <li>
-      <a href="#" data-url-type="ticketUrls" class="{{enabledSetting currentUrlDetection "ticketUrls"}}">{{t "txt_popup_options_link_detection_ticketLinks"}}</a>
-    </li>
-    <li>
-      <a href="#" data-url-type="noUrls" class="{{enabledSetting currentUrlDetection "noUrls"}}">{{t "txt_popup_options_link_detection_noLinks"}}</a>
-    </li>
-  </ul>
-</section>
-<section id="settings-help">
-  <h2>Info</h2>
-  <ul>
-    <li>
-      <a href="https://github.com/zachvier/TabGrab" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
-    </li>
-  </ul>
-</section>
+<header class="app-header">
+  <img class="app-icon" src="images/icons/icon.svg" width="46" height="46" alt="">
+  <div>
+    <h1>TabGrab</h1>
+    <p class="app-subtitle">for Zendesk</p>
+  </div>
+</header>
+<main>
+  <section id="settings-url-types" aria-labelledby="link-detection-title">
+    <h2 id="link-detection-title">{{t "txt_popup_title_link_detection"}}</h2>
+    <ul>
+      <li>
+        <a href="#" data-url-type="allUrls" class="{{enabledSetting currentUrlDetection "allUrls"}}">
+          <span class="mode-indicator" aria-hidden="true"></span>
+          <span class="mode-copy">
+            <span class="mode-title">{{t "txt_popup_options_link_detection_allLinks"}}</span>
+            <span class="mode-description">{{t "txt_popup_description_allLinks"}}</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#" data-url-type="ticketUrls" class="{{enabledSetting currentUrlDetection "ticketUrls"}}">
+          <span class="mode-indicator" aria-hidden="true"></span>
+          <span class="mode-copy">
+            <span class="mode-title">{{t "txt_popup_options_link_detection_ticketLinks"}}</span>
+            <span class="mode-description">{{t "txt_popup_description_ticketLinks"}}</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#" data-url-type="noUrls" class="{{enabledSetting currentUrlDetection "noUrls"}}">
+          <span class="mode-indicator" aria-hidden="true"></span>
+          <span class="mode-copy">
+            <span class="mode-title">{{t "txt_popup_options_link_detection_noLinks"}}</span>
+            <span class="mode-description">{{t "txt_popup_description_noLinks"}}</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</main>
+<footer id="settings-help">
+  <a href="https://github.com/zachvivier/TabGrab" target="_blank" rel="noopener noreferrer">View Source on GitHub</a>
+</footer>

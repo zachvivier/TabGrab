@@ -3,7 +3,7 @@
   "default_locale": "en",
   "name": "Zendesk TabGrab",
   "description": "Well behaved browser tabs for Zendesk agents",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "background": {
     "scripts": ["tabWatcher.js"]
   },

@@ -3,39 +3,41 @@
     "message": "Currently active",
     "description": ""
   },
-
   "txt_popup_title_link_detection": {
     "message": "Link detection settings",
     "description": ""
   },
-
   "txt_popup_options_link_detection_allLinks": {
     "message": "All agent links",
     "description": ""
   },
-
   "txt_popup_options_link_detection_ticketLinks": {
     "message": "Just ticket links",
     "description": ""
   },
-
   "txt_popup_options_link_detection_noLinks": {
     "message": "No links (disabled)",
     "description": ""
   },
-
   "txt_popup_title_help": {
     "message": "Need some help?",
     "description": ""
   },
-
   "txt_popup_options_help_documentation": {
     "message": "Read the documentation",
     "description": ""
   },
-
   "txt_popup_options_help_feedback": {
     "message": "Give beta feedback",
     "description": ""
+  },
+  "txt_popup_description_allLinks": {
+    "message": "Route all Zendesk agent links"
+  },
+  "txt_popup_description_ticketLinks": {
+    "message": "Route ticket links only"
+  },
+  "txt_popup_description_noLinks": {
+    "message": "Let links open normally"
   }
 }
